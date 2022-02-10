@@ -1,0 +1,3 @@
+function startGame() {
+    document.getElementById("page-wrapper").innerHTML = "<img class='background-img1' src='imgs/test-img1.jpg' alt='first-background-img'><div class='container1'><div class='img1'><img src='imgs/test-img1.jpg' alt='first-img'></div></div> <img class='background-img2' src='imgs/test-img2.jpg' alt='second-background-img'><div class='container2'><div class='img2'><img src='imgs/test-img2.jpg' alt='second-img'></div></div>"
+}
