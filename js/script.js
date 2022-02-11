@@ -16,22 +16,24 @@ function startGame() {
 
 function lower() {
     document.getElementById("output").innerHTML = "<h2>" + vid_views2 + "</h2>"
+    var outputCircle = document.getElementById("output-circle")
     if (view_num1 > view_num2) {
-        document.getElementById("output-cirlce").innerHTML = "&#10004;"
-        document.getElementById("output-cirlce").style.backgroundColor = "green;"
+        outputCircle.innerHTML = "&#10004;"
+        outputCircle.style.backgroundColor = "green";
     }else{
-        outputCirlce.innerHTML = "&#10006;"
-        outputCirlce.style.backgroundColor = "red;"
+        outputCircle.innerHTML = "&#10006;"
+        outputCircle.style.backgroundColor = "red";
     }
 }
 
 function higher() {
     document.getElementById("output").innerHTML = "<h2>" + vid_views2 + "</h2>"
+    var outputCircle = document.getElementById("output-circle")
     if (view_num2 > view_num1) {
-        document.getElementById("output-cirlce").innerHTML = "&#10004;"
-        document.getElementById("output-circle").style.backgroundColor = "green;"
+        outputCircle.innerHTML = "&#10004;"
+        outputCircle.style.backgroundColor = "green";
     }else{
-        document.getElementById("output-cirlce").innerHTML = "&#10006;"
-        document.getElementById("output-circle").style.backgroundColor = "red;"
+        outputCircle.innerHTML = "&#10006;"
+        outputCircle.style.backgroundColor = "red";
     }
 }
