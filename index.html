@@ -10,14 +10,48 @@
 </head>
 <body>
     <div id="page-wrapper">
-        <div id="start-button">
+        <!-- <div id="start-button">
             <button onclick="startGame()">PLAY GAME</button>
+        </div> -->
+
+
+        <!-- <img class='background-img1' src='images/" + vid_thumbnail1 + "' alt='first-background-img'> -->
+        <!-- <img class='background-img2' src='images/" + vid_thumbnail2 + "' alt='second-background-img'> -->
+        <img class='background-img1' src='images/test-img1.jpg' alt='first-background-img'>
+        <img class='background-img2' src='images/test-img2.jpg' alt='second-background-img'>
+
+        
+        <div class='container1'>
+            <div class="vid1" onclick="lower()">
+                <!-- <img src='images/" + vid_thumbnail1 + "' alt='first-img'> -->
+                <img src='images/test-img1.jpg' alt='first-img'>
+                <div class="vid-title1">
+                <!-- <p>vid_title1</p> -->
+                    <p>Baby Shark Dance | #babyshark Most Viewed Video | Animal Songs | PINKFONG Songs for Children</p>
+                </div>
+            </div>
+            <h2 class="vid-views1">10,166,751,485</h2>
+        </div>
+        <!-- <h2 class='vid-view2'>" + vid-views1 + "</h2> -->
+        
+
+        <div class='container2'>
+            <div class="vid2" onclick="higher()">
+                <!-- <img src='images/" + vid_thumbnail2 + "' alt='second-img'> -->
+                <img src='images/test-img2.jpg' alt='second-img'>
+                <div class="vid-title2">
+                    <!-- <p>vid_title2</p> -->
+                    <p>Luis Fonsi - Despacito ft. Daddy Yankee</p>
+                </div>
+            </div>
+            <div id="output"></div>
         </div>
 
-        <!-- <img class='background-img1' src='imgs/test-img1.jpg' alt='first-background-img'><div class='container1'>
-        <div class='img1'><img src='imgs/test-img1.jpg' alt='first-img'></div></div> 
-        <img class='background-img2' src='imgs/test-img2.jpg' alt='second-background-img'><div class='container2'>
-        <div class='img2'><img src='imgs/test-img2.jpg' alt='second-img'></div></div> -->
+            </div>
+        </div>
+
+
+        <div id="output-cirlce"></div>
     </div>
 
     <script src="js/script.js"></script>
