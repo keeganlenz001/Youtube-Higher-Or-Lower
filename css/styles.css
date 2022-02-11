@@ -46,6 +46,7 @@ body {
 #start-button > button{
     color: white;
     background-color: red;
+    border: none;
     font-family: 'Roboto', sans-serif; 
     font-size: 25px;
     padding: 10px;
@@ -61,15 +62,14 @@ body {
 
 
 
-.background-img1, .background-img2 {
+.background-img1, .background-img2, .slider-background {
     object-fit: cover;
     opacity: 0.5;
     overflow-x: hidden;
     position: absolute;
-    z-index: -10;
-    width: 50vw;
+    width: calc(50vw - 4px);
     height: 100vh;
-
+    z-index: -1;
 
     filter: blur(6px);
     -webkit-filter: blur(6px);
@@ -77,10 +77,13 @@ body {
 .background-img2 {
     margin-left: 50vw;
 }
+.slider-background {
+    margin-left: calc(100vw + 8px);
+}
 
 
-.container1, .container2{
-    width: 50vw;
+.container1, .container2, .slider{
+    width: calc(50vw - 4px);
     height: 100vh;
     position: absolute;
     box-shadow: inset 0px 0px 100px rgb(0, 0, 0);
@@ -90,21 +93,25 @@ body {
 }
 .container2 {
     margin-left: 50vw;
+    border-left: solid 8px rgb(40, 40, 40);
+}
+.slider {
+    margin-left: 100vw;
     border-left: solid 4px rgb(40, 40, 40);
 }
 
 
-.vid1, .vid2 {
+.vid1, .vid2, .slider-vid {
     background-color: black;
     margin-left: 10%;
-    margin-top: 15%;
+    margin-top: 5%;
     width: 80%;
 }
 .vid1:hover, .vid2:hover {
     background-color: white;
     cursor: pointer;
 }
-.vid1 > img, .vid2 > img {
+.vid1 > img, .vid2 > img, .slider-vid > img {
     display: block;
     pointer-events: none;
     opacity: 0.90;
@@ -112,7 +119,7 @@ body {
     height: auto;
 }
 
-.vid-title1, .vid-title2 {
+.vid-title1, .vid-title2, .slider-title {
     background-color: rgb(40, 40, 40);
     color: white;
     font-family: 'Roboto', sans-serif; 
@@ -142,13 +149,15 @@ h2 {
 
 
 #output-circle { 
-    background-color: none;
-    border: 5px solid rgb(40, 40, 40);
+    background-color: white;
+    border: 8px solid rgb(40, 40, 40);
     border-radius: 100px;
-    color: white;
-    font-size: 5vw;
+    color: black;
+    font-family: 'Roboto', sans-serif;
+    font-size: 2vw;
+    font-weight: bold;
     line-height: 7vw;
-    margin-left: calc(46.5vw - 4px);
+    margin-left: calc(46.5vw - 8px);
     margin-top: 23vh;
     position: absolute;
     text-align: center;
