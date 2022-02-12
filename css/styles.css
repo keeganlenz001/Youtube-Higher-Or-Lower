@@ -85,10 +85,11 @@ body {
 
 
 #container1, #container2, #slider{
+    box-shadow: inset 0px 0px 100px rgb(0, 0, 0);
+    position: absolute;
     width: calc(50vw - 4px);
     height: 100vh;
-    position: absolute;
-    box-shadow: inset 0px 0px 100px rgb(0, 0, 0);
+
     transition: margin-left 2s;
 }
 #container1 {
@@ -104,17 +105,17 @@ body {
 }
 
 
-.vid1, .vid2, .slider-vid {
+#vid1, #vid2, #slider-vid {
     background-color: black;
     margin-left: 10%;
-    margin-top: 5%;
+    margin-top: 15vh;
     width: 80%;
 }
-.vid1:hover, .vid2:hover {
+#vid1:hover, #vid2:hover {
     background-color: white;
     cursor: pointer;
 }
-.vid1 > img, .vid2 > img, .slider-vid > img {
+#vid1 > img, #vid2 > img, #slider-vid > img {
     display: block;
     pointer-events: none;
     opacity: 0.90;
@@ -122,12 +123,11 @@ body {
     height: auto;
 }
 
-.vid-title1, .vid-title2, .slider-title {
+#vid-title1, #vid-title2, #slider-title {
     background-color: rgb(40, 40, 40);
     color: white;
     font-family: 'Roboto', sans-serif; 
     font-size: 1.5vw;
-    height: max-content;
 }
 
 
@@ -139,15 +139,6 @@ h2 {
     margin-top: 20px;
     text-align: center;
     width: 100%;
-}
-
-.vid-views1 {
-    width: 80%;
-    margin-left: 10%;
-}
-
-.vid-views2 {
-    visibility: hidden;
 }
 
 
