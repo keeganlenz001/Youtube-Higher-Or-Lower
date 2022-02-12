@@ -33,7 +33,9 @@ window.setInterval(function() {
 
 
 function setUp() {
-    document.getElementById("page-wrapper").innerHTML = "<img id='background-img1' src='https://img.youtube.com/vi/" + vid_thumbnail1 + "/maxresdefault.jpg' alt='first-background-img'><img id='background-img2' src='https://img.youtube.com/vi/" + vid_thumbnail2 + "/maxresdefault.jpg' alt='second-background-img'><img id='slider-background' src='https://img.youtube.com/vi/" + slider_thumbnail + "/maxresdefault.jpg' alt='slider-background-img'><div id='container1'><div id='vid1' onclick='lower()'><img src='https://img.youtube.com/vi/" + vid_thumbnail1 + "/maxresdefault.jpg' alt='first-img'><div id='vid-title1'><p>" + vid_title1 + "</p></div></div><h2 id='vid-views1'>" + vid_views1 + "</h2></div><div id='container2'><div id='vid2' onclick='higher()'><img src='https://img.youtube.com/vi/" + vid_thumbnail2 + "/maxresdefault.jpg' alt='second-img'><div id='vid-title2'><p>" + vid_title2 + "</p></div></div><div id='output'></div></div><div id='slider'><div id='slider-vid' onclick='higher()'><img src='https://img.youtube.com/vi/" + slider_thumbnail + "/maxresdefault.jpg' alt='second-img'><div id='slider-title'><p>" + slider_title + "</p></div></div></div><div id='output-circle'>VS</div>"
+    document.getElementById('page-wrapper').style.marginTop = "0vh";
+    document.getElementById('game-over-wrapper').style.zIndex = "-3"
+    document.getElementById("page-wrapper").innerHTML = "<img id='background-img1' src='https://img.youtube.com/vi/" + vid_thumbnail1 + "/maxresdefault.jpg' alt='first-background-img'><img id='background-img2' src='https://img.youtube.com/vi/" + vid_thumbnail2 + "/maxresdefault.jpg' alt='second-background-img'><img id='slider-background' src='https://img.youtube.com/vi/" + slider_thumbnail + "/maxresdefault.jpg' alt='slider-background-img'><div id='container1'><div id='vid1' onclick='lower()'><img src='https://img.youtube.com/vi/" + vid_thumbnail1 + "/maxresdefault.jpg' alt='first-img'><div id='vid-title1'><p>" + vid_title1 + "</p></div></div><h2 id='vid-views1'>" + vid_views1 + "</h2></div><div id='container2'><div id='vid2' onclick='higher()'><img src='https://img.youtube.com/vi/" + vid_thumbnail2 + "/maxresdefault.jpg' alt='second-img'><div id='vid-title2'><p>" + vid_title2 + "</p></div></div><div id='output'></div></div><div id='slider'><div id='slider-vid' onclick='higher()'><img src='https://img.youtube.com/vi/" + slider_thumbnail + "/maxresdefault.jpg' alt='second-img'><div id='slider-title'><p>" + slider_title + "</p></div></div></div><div id='output-circle'>VS</div><div id='game-cover'></div>"
     clicked = 0;
 }
 
@@ -81,12 +83,15 @@ function transition() {
 
         setTimeout(function() {circleClose();}, 500);
     }else{
-        document.getElementById("output").innerHTML = "<h2>" + vid_views2 + "</h2>";
         var outputCircle = document.getElementById("output-circle");
         outputCircle.innerHTML = "&#10006;";
         outputCircle.style.backgroundColor = "red";
         outputCircle.style.color = "white";
         outputCircle.style.fontSize = "5vw";
+
+        document.getElementById('game-over-wrapper').innerHTML = "<div class='game-over'><h3>You Scored:</h3><h2>1</h2><p>Eh, you could do better. You do want to do better, don't you?</p><button onclick='setUp()'>Play again</button></div>"
+        setTimeout(function() {circleClose();}, 500);
+        // document.getElementById('page-wrapper').style.marginTop = "-125vh";
     }
     
 }
@@ -101,7 +106,11 @@ function circleClose() {
     outputCircle.style.fontSize = "0vw";
     outputCircle.style.lineHeight = "0vw";
 
-    setTimeout(function() {correctAnimation();}, 500);
+    if (isCorrect == true) {
+        setTimeout(function() {correctAnimation();}, 500);
+    }else{
+        setTimeout(function() {incorrectAnimation();}, 500);
+    }
 }
 function correctAnimation() {
     var background_img1 = document.getElementById("background-img1");
@@ -114,10 +123,10 @@ function correctAnimation() {
 
     background_img1.style.marginLeft = "calc(-50vw - 4px)";
     background_img2.style.marginLeft = "0";
-    slider_background.style.marginLeft = "calc(50vw + 8px)";
+    slider_background.style.marginLeft = "50vw";
 
     container1.style.marginLeft = "calc(-50vw - 4px)";
-    container2.style.marginLeft = "0";
+    container2.style.marginLeft = "0vw";
     slider.style.marginLeft = "50vw";
 
     container1.style.borderRight = "8px solid rgb(40, 40, 40)";
@@ -126,6 +135,10 @@ function correctAnimation() {
 
     setTimeout(function() {circleOpen();}, 2000);
     setTimeout(function() {setUp();}, 2500);
+}
+function incorrectAnimation() {
+    document.getElementById('page-wrapper').style.marginTop = "calc(-100vh - 10px)";
+    setTimeout(() => {document.getElementById('game-over-wrapper').style.zIndex = "1"}, 1000);
 }
 function circleOpen() {
     var outputCircle = document.getElementById("output-circle");

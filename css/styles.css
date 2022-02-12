@@ -19,7 +19,7 @@ html {
     overflow: hidden;
 }
 
-html,body {
+html, body {
     min-height: 100vh;
     margin: 0;
 }
@@ -32,11 +32,15 @@ body {
     align-items: center;
 }
 
-.page-wrapper {
+#page-wrapper {
     display: flex;
     justify-content: center;
+    margin-top: 0vh;
     min-width: 100vw;
     min-height: 100vh;
+    position: absolute;
+
+    transition: margin-top 1s;
 }
 
 #start-button {
@@ -64,20 +68,20 @@ body {
 
 #background-img1, #background-img2, #slider-background {
     object-fit: cover;
-    opacity: 0.5;
+    opacity: 1;
     overflow-x: hidden;
     position: absolute;
-    width: calc(50vw - 4px);
+    width: 50vw;
     height: 100vh;
     z-index: -1;
 
-    filter: blur(6px);
-    -webkit-filter: blur(6px);
+    filter: blur(6px) brightness(50%);
+    -webkit-filter: blur(6px) brightness(50%);
 
     transition: margin-left 2s;
 }
 #background-img2 {
-    margin-left: calc(50vw + 8px);
+    margin-left: 50vw;
 }
 #slider-background {
     margin-left: calc(100vw + 8px);
@@ -162,4 +166,72 @@ h2 {
     height: 7vw;
 
     transition: width 0.5s, height 0.5s, margin-left 0.5s, margin-top 0.5s, border 0.5s, font-size 0.5s, line-height 0.5s;
+}
+
+
+
+#game-cover {
+    background-color: rgb(40, 40, 40);
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    z-index: -2;
+}
+
+#game-over-wrapper {
+    position: absolute;
+    z-index: -3;
+}
+.game-over {
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+}
+.game-over > h3 {
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 2vw;
+    margin-top: 12.5%;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    height: max-content;
+}
+.game-over > h2 {
+    margin-top: 15%;
+    position: absolute;
+    width: 100%;
+    height: max-content;
+}
+.game-over > p {
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5vw;
+    margin-top: 25%;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    height: max-content;
+}
+.game-over > button {
+    background-color: rgb(40, 40, 40);
+    border: 5px solid white;
+    border-radius: 50px;
+    color: white;
+    font-size: 2vw;
+    margin-top: 30%;
+    padding: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
+    text-align: center;
+    width: max-content;
+    height: max-content;
+
+    transition: background-color 0.25s, color 0.25s;
+}
+.game-over > button:hover {
+    background-color: white;
+    color: rgb(40, 40, 40);
+    cursor: pointer;
 }
