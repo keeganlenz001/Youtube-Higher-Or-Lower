@@ -1,3 +1,4 @@
+var clicked = 0;
 var isCorrect = false;
 var count = 0;
 
@@ -33,6 +34,7 @@ window.setInterval(function() {
 
 function setUp() {
     document.getElementById("page-wrapper").innerHTML = "<img id='background-img1' src='https://img.youtube.com/vi/" + vid_thumbnail1 + "/maxresdefault.jpg' alt='first-background-img'><img id='background-img2' src='https://img.youtube.com/vi/" + vid_thumbnail2 + "/maxresdefault.jpg' alt='second-background-img'><img id='slider-background' src='https://img.youtube.com/vi/" + slider_thumbnail + "/maxresdefault.jpg' alt='slider-background-img'><div id='container1'><div id='vid1' onclick='lower()'><img src='https://img.youtube.com/vi/" + vid_thumbnail1 + "/maxresdefault.jpg' alt='first-img'><div id='vid-title1'><p>" + vid_title1 + "</p></div></div><h2 id='vid-views1'>" + vid_views1 + "</h2></div><div id='container2'><div id='vid2' onclick='higher()'><img src='https://img.youtube.com/vi/" + vid_thumbnail2 + "/maxresdefault.jpg' alt='second-img'><div id='vid-title2'><p>" + vid_title2 + "</p></div></div><div id='output'></div></div><div id='slider'><div id='slider-vid' onclick='higher()'><img src='https://img.youtube.com/vi/" + slider_thumbnail + "/maxresdefault.jpg' alt='second-img'><div id='slider-title'><p>" + slider_title + "</p></div></div></div><div id='output-circle'>VS</div>"
+    clicked = 0;
 }
 
 function counter(count) {
@@ -141,16 +143,22 @@ function circleOpen() {
 }
 
 function higher() {
-    if (view_num2 > view_num1) {
-        correct();
-    }else{
-        incorrect();
+    clicked++;
+    if (clicked == 1) {
+        if (view_num2 > view_num1) {
+            correct();
+        }else{
+            incorrect();
+        }
     }
 }
 function lower() {
-    if (view_num1 > view_num2) {
-        correct();
-    }else{
-        incorrect();
-    }
+    clicked++;
+    if (clicked == 1) {
+        if (view_num1 > view_num2) {
+            correct();
+        }else{
+            incorrect();
+        }
+    }   
 }

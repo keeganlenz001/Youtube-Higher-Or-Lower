@@ -110,11 +110,14 @@ body {
     margin-left: 10%;
     margin-top: 15vh;
     width: 80%;
+    
+    transition: background-color 0.15s;
 }
 #vid1:hover, #vid2:hover {
     background-color: white;
     cursor: pointer;
 }
+
 #vid1 > img, #vid2 > img, #slider-vid > img {
     display: block;
     pointer-events: none;
