@@ -62,7 +62,7 @@ body {
 
 
 
-.background-img1, .background-img2, .slider-background {
+#background-img1, #background-img2, #slider-background {
     object-fit: cover;
     opacity: 0.5;
     overflow-x: hidden;
@@ -73,29 +73,32 @@ body {
 
     filter: blur(6px);
     -webkit-filter: blur(6px);
+
+    transition: margin-left 2s;
 }
-.background-img2 {
-    margin-left: 50vw;
+#background-img2 {
+    margin-left: calc(50vw + 8px);
 }
-.slider-background {
+#slider-background {
     margin-left: calc(100vw + 8px);
 }
 
 
-.container1, .container2, .slider{
+#container1, #container2, #slider{
     width: calc(50vw - 4px);
     height: 100vh;
     position: absolute;
     box-shadow: inset 0px 0px 100px rgb(0, 0, 0);
+    transition: margin-left 2s;
 }
-.container1 {
+#container1 {
     border-right: solid 4px rgb(40, 40, 40);
 }
-.container2 {
+#container2 {
+    border-left: solid 4px rgb(40, 40, 40);
     margin-left: 50vw;
-    border-left: solid 8px rgb(40, 40, 40);
 }
-.slider {
+#slider {
     margin-left: 100vw;
     border-left: solid 4px rgb(40, 40, 40);
 }
@@ -152,7 +155,7 @@ h2 {
     background-color: white;
     border: 8px solid rgb(40, 40, 40);
     border-radius: 100px;
-    color: black;
+    color: rgb(40, 40, 40);
     font-family: 'Roboto', sans-serif;
     font-size: 2vw;
     font-weight: bold;
@@ -163,4 +166,6 @@ h2 {
     text-align: center;
     width: 7vw;
     height: 7vw;
+
+    transition: width 0.5s, height 0.5s, margin-left 0.5s, margin-top 0.5s, border 0.5s, font-size 0.5s, line-height 0.5s;
 }

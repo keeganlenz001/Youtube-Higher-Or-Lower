@@ -15,10 +15,12 @@ var slider_thumbnail = "F4tHL8reNCs";
 
 
 function setUp() {
-    document.getElementById("page-wrapper").innerHTML = "<img class='background-img1' src='https://img.youtube.com/vi/" + vid_thumbnail1 + "/maxresdefault.jpg' alt='first-background-img'><img class='background-img2' src='https://img.youtube.com/vi/" + vid_thumbnail2 + "/maxresdefault.jpg' alt='second-background-img'><img class='slider-background' src='https://img.youtube.com/vi/" + slider_thumbnail + "/maxresdefault.jpg' alt='slider-background-img'><div class='container1'><div class='vid1' onclick='lower()'><img src='https://img.youtube.com/vi/" + vid_thumbnail1 + "/maxresdefault.jpg' alt='first-img'><div class='vid-title1'><p>" + vid_title1 + "</p></div></div><h2 class='vid-view2'>" + vid_views1 + "</h2></div><div class='container2'><div class='vid2' onclick='higher()'><img src='https://img.youtube.com/vi/" + vid_thumbnail2 + "/maxresdefault.jpg' alt='second-img'><div class='vid-title2'><p>" + vid_title2 + "</p></div></div><div id='output'></div></div><div class='slider'><div class='slider-vid' onclick='higher()'><img src='https://img.youtube.com/vi/" + slider_thumbnail + "/maxresdefault.jpg' alt='second-img'><div class='slider-title'><p>" + slider_title + "</p></div></div></div><div id='output-circle'>VS</div>"
+    document.getElementById("page-wrapper").innerHTML = "<img id='background-img1' src='https://img.youtube.com/vi/" + vid_thumbnail1 + "/maxresdefault.jpg' alt='first-background-img'><img id='background-img2' src='https://img.youtube.com/vi/" + vid_thumbnail2 + "/maxresdefault.jpg' alt='second-background-img'><img id='slider-background' src='https://img.youtube.com/vi/" + slider_thumbnail + "/maxresdefault.jpg' alt='slider-background-img'><div id='container1'><div class='vid1' onclick='lower()'><img src='https://img.youtube.com/vi/" + vid_thumbnail1 + "/maxresdefault.jpg' alt='first-img'><div class='vid-title1'><p>" + vid_title1 + "</p></div></div><h2 class='vid-view2'>" + vid_views1 + "</h2></div><div id='container2'><div class='vid2' onclick='higher()'><img src='https://img.youtube.com/vi/" + vid_thumbnail2 + "/maxresdefault.jpg' alt='second-img'><div class='vid-title2'><p>" + vid_title2 + "</p></div></div><div id='output'></div></div><div id='slider'><div class='slider-vid' onclick='higher()'><img src='https://img.youtube.com/vi/" + slider_thumbnail + "/maxresdefault.jpg' alt='second-img'><div class='slider-title'><p>" + slider_title + "</p></div></div></div><div id='output-circle'>VS</div>"
 }
 
 function correct() {
+    document.getElementById("output").innerHTML = "<h2>" + vid_views2 + "</h2>";
+
     var outputCircle = document.getElementById("output-circle");
     outputCircle.innerHTML = "&#10004;";
     outputCircle.style.backgroundColor = "green";
@@ -36,9 +38,62 @@ function correct() {
     vid_title2 = slider_title;
     vid_thumbnail2 = slider_thumbnail;
 
-    document.getElementById("output").innerHTML = "<h2>" + vid_views2 + "</h2>";
-    setUp();
+    setTimeout(function() {circleClose();}, 500);
 }
+
+
+function circleClose() {
+    var outputCircle = document.getElementById("output-circle");
+    outputCircle.style.width = "0vw";
+    outputCircle.style.height = "0vw";
+    outputCircle.style.marginLeft = "calc(50vw - 0px)";
+    outputCircle.style.marginTop = "30vh";
+    outputCircle.style.border = "0px solid rgb(40, 40, 40)";
+    outputCircle.style.fontSize = "0vw";
+    outputCircle.style.lineHeight = "0vw";
+
+    setTimeout(function() {correctAnimation();}, 500);
+}
+function correctAnimation() {
+    var background_img1 = document.getElementById("background-img1");
+    var background_img2 = document.getElementById("background-img2");
+    var slider_background = document.getElementById("slider-background");
+
+    var container1 = document.getElementById("container1");
+    var container2 = document.getElementById("container2");
+    var slider = document.getElementById("slider");
+
+    background_img1.style.marginLeft = "calc(-50vw - 4px)";
+    background_img2.style.marginLeft = "0";
+    slider_background.style.marginLeft = "calc(50vw + 8px)";
+
+    container1.style.marginLeft = "calc(-50vw - 4px)";
+    container2.style.marginLeft = "0";
+    slider.style.marginLeft = "50vw";
+
+    container1.style.borderRight = "8px solid rgb(40, 40, 40)";
+    container2.style.borderLeft = "none";
+    container2.style.borderRight = "4px solid rgb(40, 40, 40)";
+
+    setTimeout(function() {circleOpen();}, 2000);
+    setTimeout(function() {setUp();}, 2500);
+}
+function circleOpen() {
+    var outputCircle = document.getElementById("output-circle");
+    outputCircle.innerHTML = "VS";
+    outputCircle.style.backgroundColor = "white";
+    outputCircle.style.color = "rgb(40, 40, 40)";
+
+    outputCircle.style.width = "7vw";
+    outputCircle.style.height = "7vw";
+    outputCircle.style.marginLeft = "calc(46.5vw - 8px)";
+    outputCircle.style.marginTop = "23vh";
+    outputCircle.style.border = "8px solid rgb(40, 40, 40)";
+    outputCircle.style.fontSize = "2vw";
+    outputCircle.style.lineHeight = "7vw";
+}
+
+
 function incorrect() {
     document.getElementById("output").innerHTML = "<h2>" + vid_views2 + "</h2>";
     var outputCircle = document.getElementById("output-circle");
