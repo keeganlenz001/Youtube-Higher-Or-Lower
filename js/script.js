@@ -439,10 +439,10 @@ function transition() {
             document.getElementById('game-over-wrapper').style.background = "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('gifs/score_8.gif')";
             document.getElementById('ending-text').innerHTML = "I'm impressed. Get to 10 to become a legend."
         }else if (score == 9) {
-            document.getElementById('game-over-wrapper').style.background = "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('gifs/score_9.gif')";
+            document.getElementById('game-over-wrapper').style.background = "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('gifs/score_9.jpg')";
             document.getElementById('ending-text').innerHTML = "You were so close..."
         }else if (score >= 10) {
-            document.getElementById('game-over-wrapper').style.background = "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('gifs/score_10.gif')";
+            document.getElementById('game-over-wrapper').style.background = "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('gifs/score_10.jpg')";
             document.getElementById('ending-text').innerHTML = "Congragulations! You reached 10. I can't say im suprised though, I knew you had it in you. You are now an eternal legend!"
         }
 
