@@ -32,10 +32,10 @@ body {
     align-items: center;
 }
 
-#page-wrapper {
+#game-wrapper {
     display: flex;
     justify-content: center;
-    margin-top: 0vh;
+    margin-top: calc(-100vh - 10px);
     min-width: 100vw;
     min-height: 100vh;
     position: absolute;
@@ -43,25 +43,43 @@ body {
     transition: margin-top 1s;
 }
 
-#start-button {
-    margin-top: 25%;
+#start-game {
+    margin-top: -10vh;
+    width: 100%;
+    z-index: 1;
 }
+#start-game > h2 {
+    font-size: 2vw;
+    transform: rotate(-3deg);
+    width: 100%;
 
-#start-button > button{
+    animation: game-header 5s infinite linear;
+}
+.start-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 10vh;
+    width: 100%;
+}
+.start-container > button{
     color: white;
     background-color: red;
     border: none;
     font-family: 'Roboto', sans-serif; 
-    font-size: 25px;
-    padding: 10px;
-    padding-left: 50px;
-    padding-right: 50px;
-    border-radius: 20px;
+    font-size: 1.5vw;
+    padding: 1vw;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    border-radius: 2vw;
+    width: max-content;
     height: max-content;
+
+    transition: background-color 0.25s, color 0.25s;
 }
-#start-button > button:hover {
+.start-container > button:hover {
     cursor: pointer;
-    background-color: rgb(255, 50, 50);
+    background-color: white;
+    color: rgb(40, 40, 40)
 }
 
 
@@ -216,14 +234,14 @@ h2 {
 }
 .game-over > button {
     background-color: rgb(40, 40, 40);
-    border: 5px solid white;
-    border-radius: 50px;
+    border: 0.25vw solid white;
+    border-radius: 5vw;
     color: white;
-    font-size: 2vw;
+    font-size: 1.5vw;
     margin-top: 30%;
-    padding: 20px;
-    padding-left: 50px;
-    padding-right: 50px;
+    padding: 1vw;
+    padding-left: 2vw;
+    padding-right: 2vw;
     text-align: center;
     width: max-content;
     height: max-content;
@@ -234,4 +252,20 @@ h2 {
     background-color: white;
     color: rgb(40, 40, 40);
     cursor: pointer;
+}
+
+
+@keyframes game-header {
+    25% {
+        transform: scale(1.25, 1.25);
+    }
+    50% {
+        transform: rotate(3deg);
+    }
+    75% {
+        transform: scale(1.25, 1.25);
+    }
+    100% {
+        transform: rotate(-3deg);
+    }
 }
